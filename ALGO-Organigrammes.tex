@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% author                : louis tomczyk
+% date of production    : 2024-02-19
+% licence               : cc-by-nc-sa
+%                         Attribution - Non-Commercial - Share Alike 4.0 International
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ORGANIGRAMMES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% boxes
+\newcommand{\boxvalue}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick,fill = cyan, color = cyan,fill opacity= 0.2] (#1-1,#2-0.5) rectangle (#1+1,#2+0.5)
+    node[text = black,text opacity = 1,midway]{#3};
+}
+
+\newcommand{\boxvaluelarge}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick,fill = cyan, color = cyan,fill opacity= 0.2] (#1-2,#2-0.5) rectangle (#1+2,#2+0.5)
+    node[text = black,text opacity = 1,midway]{#3};
+}
+
+\newcommand{\boxaction}[4]% #1 : abscisse, #2 ordonnée, #3 comment, #4 color
+{
+    \draw[rounded corners = 4pt,thick, color = #4] (#1-1,#2-0.5) rectangle (#1+1,#2+0.5)
+    node[midway]{#3};
+}
+
+\newcommand{\boxactionlarge}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick] (#1-2,#2-0.5) rectangle (#1+2,#2+0.5)
+    node[midway]{#3};
+}
+
+\newcommand{\boxactionthick}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick] (#1-2,#2-1) rectangle (#1+2,#2+1)
+    node[midway]{#3};
+}
+
+\newcommand{\boxquestion}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick,fill = green, color = green,fill opacity= 0.2] (#1-1,#2-0.5) rectangle (#1+1,#2+0.5)
+    node[text = black,text opacity = 1,midway]{#3};
+}
+
+\newcommand{\boxquestionlarge}[3]% #1 : abscisse, #2 ordonnée, #3 comment
+{
+    \draw[rounded corners = 4pt,thick,fill = green, color = green,fill opacity= 0.2] (#1-2,#2-0.5) rectangle (#1+2,#2+0.5)
+    node[text = black,text opacity = 1,midway]{#3};
+}
+
+\newcommand{\boxbreak}[5]% #1 : abscisse center, #2 ordonnée center, #3 demi petit axe, #4 demi grand axe, #5 comment
+{
+    \draw[rounded corners = 4pt,thick,fill = red, color = red,fill opacity= 0.35] (#1-2,#2-0.5) ellipse  (#3 cm and #4 cm)
+    node[text = black,text opacity = 1]{#5};
+}
+
+\newcommand{\comparator}[4]% #1 : abscisse, #2 ordonnée, #3 radius
+{
+    \draw[thick] (#1,#2) circle (#3) node{\textcolor{#4}{$+$}};
+}
+
+% links
+\newcommand{\linkright}[5]% #1 : abscisse, #2 ordonnée, #3 length, #4 comment, #5 color
+{
+    \draw[thick,->] (#1,#2) --++ (#3,0) node[midway,above]{#4};
+}
+
+\newcommand{\linkdown}[5]% #1 : abscisse, #2 ordonnée, #3 length, #4 comment
+{
+    \draw[thick,->, color = #5] (#1,#2) --++ (0,-#3) node[midway,right]{#4};
+}
