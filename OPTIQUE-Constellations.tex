@@ -15,6 +15,13 @@
     \draw[->] (#1,#2-#3) --++ (0,2*#3);% node[above]{$\Im$};
 }
 
+\newcommand{\constBPSK}[5]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
+{
+    \constAx{#1}{#2}{#3}
+    \draw[color = #5, fill = #5] (#1-#3/2,#2) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2,#2) circle(#4);
+}
+
 \newcommand{\constQPSK}[5]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
 {
     \constAx{#1}{#2}{#3}
