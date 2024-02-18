@@ -44,6 +44,8 @@
 \newcommand{\VoltBox}[4]% #1 : abscisse, #2 ordonnée, #3 text, #4 color edges
 {
 	\draw[color = #4] (#1,#2) rectangle (#1+1,#2+1) node[midway]{$U#3$};
+	\draw[color = #4,->,thick] (#1+0.5,#2+1) --++ (0,0.5);
+	\draw[color = #4,->,thick] (#1+0.5,#2) --++ (0,-0.5);
 }
 
 
