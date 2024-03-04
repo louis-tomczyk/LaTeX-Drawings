@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% author                : louis tomczyk
+% date of production    : 2024-03-03
+% licence               : cc-by-nc-sa
+%                         Attribution - Non-Commercial - Share Alike 4.0 International
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bfig
+	\begin{tikzpicture}[scale = 1.25]
+		\draw[thick, ->] (0,0) --++ (13,0)node[right]{$z$};
+		\foreach \z in {1,2,3,...,12}
+		{
+        \draw (\z,-0.25)node[below = 3pt]{$L_C$}--++ (0,0.5);
+		}
+    		\foreach \z in {4,8,12}
+		{
+			\draw[ultra thick, green!50!black] (\z,-0.75)node[below = 3pt]{$\Lbp$} --++ (0,1.5);
+		}
+        \draw[<->,ultra thick, green!50!black] (0.5,1)--++ (0,-0.5);
+		\draw[<->,ultra thick, green!50!black] (1.5,1)--++ (0.2,-0.5);
+		\draw[<->,ultra thick, green!50!black] (2.5,0.75)--++ (0.5,0);
+		\draw[<->,ultra thick, green!50!black] (3.5,0.5)--++ (0.2,+0.5);
+		\draw[<->,ultra thick, green!50!black] (4.5,0.5)--++ (0,+0.5);
+
+		\draw[<->,ultra thick, green!50!black] (5.5,1)--++ (0.2,-0.5);
+		\draw[<->,ultra thick, green!50!black] (6.5,0.75)--++ (0.5,0);
+		\draw[<->,ultra thick, green!50!black] (7.5,0.5)--++ (0.2,+0.5);
+		\draw[<->,ultra thick, green!50!black] (8.5,0.5)--++ (0,+0.5);
+
+		\draw[<->,ultra thick, green!50!black] (9.5,1)--++ (0.2,-0.5);
+		\draw[<->,ultra thick, green!50!black] (10.5,0.75)--++ (0.5,0);
+		\draw[<->,ultra thick, green!50!black] (11.5,0.5)--++ (0.2,+0.5);
+		\draw[<->,ultra thick, green!50!black] (12.5,0.5)--++ (0,+0.5);
+
+	\end{tikzpicture}
+	\caption{Évolution de l'état de polarisation (flèche verte) au cours des
+	la propagation dans la fibre quand $L_C<\Lbp$.}
+	\label{fig:Lbp_LC}
+\efig
