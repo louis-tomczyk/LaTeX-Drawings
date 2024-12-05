@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% author                : louis tomczyk
+% date of production    : 2024-02-11
+% licence               : cc-by-nc-sa
+%                         Attribution - Non-Commercial - Share Alike 4.0 International
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONSTELLATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\constAx}[3]% #1 : abscisse, #2 ordonnée, #3 radius
+{
+    \draw[->] (#1-#3,#2) --++ (2*#3,0);% node[right]{$\Re$};
+    \draw[->] (#1,#2-#3) --++ (0,2*#3);% node[above]{$\Im$};
+}
+
+\newcommand{\constBPSK}[5]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
+{
+    \constAx{#1}{#2}{#3}
+    \draw[color = #5, fill = #5] (#1-#3/2,#2) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2,#2) circle(#4);
+}
+
+\newcommand{\constQPSK}[5]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
+{
+    \constAx{#1}{#2}{#3}
+    \draw[color = #5, fill = #5] (#1-#3/2,#2+#3/2) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2,#2+#3/2) circle(#4);
+    \draw[color = #5, fill = #5] (#1-#3/2,#2-#3/2) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2,#2-#3/2) circle(#4);
+}
+
+
+\newcommand{\constQPSKrot}[5]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
+{
+    \constAx{#1}{#2}{#3}
+    \draw[color = #5, fill = #5] (#1-#3/2+#3/4,#2-#3/2-#3/4) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2+#3/4,#2-#3/2+#3/4) circle(#4);
+    \draw[color = #5, fill = #5] (#1+#3/2-#3/4,#2+#3/2+#3/4) circle(#4);
+    \draw[color = #5, fill = #5] (#1-#3/2-#3/4,#2+#3/2-#3/4) circle(#4);
+}
+
+
+\newcommand{\constNOISE}[8]% #1 : abscisse, #2 ordonnée, #3 radius.sqrt(2), #4 radius point, #5 color fill
+{
+    \constAx{#1}{#2}{#3}
+    \draw[color = #8, fill = #8] (#1+#4,#2+#5) ellipse(#6 and #7);
+}

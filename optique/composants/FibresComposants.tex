@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% author                : louis tomczyk
+% date of production    : 2024-02-11
+% licence               : cc-by-nc-sa
+%                         Attribution - Non-Commercial - Share Alike 4.0 International
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIBRES ET COMPOSANTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\EDFA}[4]% #1 : abscisse, #2 ordonnée, #3 angle de rotation, #4 comment
+{
+    \draw[rotate around= {#3:(#1,#2)}, fill = white,thick] (#1,#2-0.5) --++ (1,0.5) --++ (-1,0.5) -- cycle;
+    \draw[rotate around= {#3:(#1,#2)}] (#1+0.5,#2+0.75)node{\footnotesize #4};
+}
+
+\newcommand{\FIBRE}[4]% #1 : abscisse, #2 ordonnée, #3 angle de rotation, #4 comment
+{
+    \draw[rotate around= {#3:(#1,#2)}, fill = white,thick] (#1,#2+0.5) circle (0.5) node[above = 13pt]{\footnotesize #4};
+
+}
+
+\newcommand{\VOA}[4]% #1 : abscisse, #2 ordonnée, #3 angle de rotation, #4 comment
+{
+    \draw[thick] (#1-0.5,#2) --++ (1,0);
+    \draw[rotate around= {#3:(#1,#2)}, fill = white,thick] (#1,#2) circle (0.25) node[above = 7pt]{\footnotesize #4};
+    \draw[thick,->] (#1-0.3,#2-0.3) --++ (0.6,0.6);%
+}
+
+
+\newcommand{\MZM}[4]% #1 : abscisse, #2 ordonnée, #3 supp length, #4 color
+{
+	\draw[color = #4,thick] (#1,#2) --++ (1,0) --++ (1,1) --++ (2,0) --++ (1,-1) --++ (1+#3,0) --++ (-1-#3,0) --++ (-1,-1) --++ (-2,0) --++ (-1,1);
+}
+
+\newcommand{\MZMpi}[3]% #1 : abscisse, #2 ordonnée, #3 color
+{
+	\draw[color = #3,thick] (#1,#2) --++ (1,0) --++ (1,1) --++ (2,0) --++ (1,-1) --++ (1,0) --++ (-1,0) --++ (-1,-1) --++ (-2,0) --++ (-1,1);
+	\draw[color = #3,fill = white,thick] (#1+5.5,#2-0.5) rectangle (#1+6.5,#2+0.5) node[midway]{$\dfrac{\pi}{2}$};
+	\draw[color = #3] (#1+6.5,#2) --++ (0.5,0);
+}
+
+\newcommand{\VoltBox}[4]% #1 : abscisse, #2 ordonnée, #3 text, #4 color edges
+{
+	\draw[color = #4] (#1,#2) rectangle (#1+1,#2+1) node[midway]{$U#3$};
+	\draw[color = #4,->,thick] (#1+0.5,#2+1) --++ (0,0.5);
+	\draw[color = #4,->,thick] (#1+0.5,#2) --++ (0,-0.5);
+}
+
+
+\newcommand{\PBS}[2]% #1 : abscisse, #2 ordonnée
+{
+	\draw (#1,#2) --++ (1,0) --++ (0,1) --++ (-1,-1) --++ (0,1) --++ (1,0);
+	\draw (#1+0.75,#2+0.1875) node{$\bullet$};
+}
+
+
+\newcommand{\LED}[3] % #1 abscisse, #2 ordonnée, #3 color
+{
+	\draw[thick, color = #3] (#1,#2+1.5) --++ (0,-0.75);
+	\draw[thick, color = #3] (#1-0.75,#2-0.75) rectangle (#1+0.75,#2+0.75);
+	\draw[thick, color = #3] (#1,#2+0.625) --++ (0,-0.25) --++ (-0.4,0) --++ (0.4,-0.625) --++ (0,-0.25) --++ (0,0.25) --++ (-0.375,0) --++ (0.75,0) --++ (-0.375,0)--++ (0.4,0.625) --++ (-0.4,0);
+	
+	\draw[thick, color = #3] (#1+0.4,#2-0.5) node[rotate = -40]{$\to$};
+	\draw[thick, color = #3] (#1+0.2,#2-0.52) node[rotate = -90]{$\to$};
+	
+	\draw[thick, color = #3] (#1,#2-0.75) --++ (0,-0.75);
+}
+
+
+
+\newcommand{\laser}[3] % #1 abscisse, #2 ordonnée, #3 color
+{
+	\draw[thick, color = #3] (#1,#2+1.5) --++ (0,-0.75);
+	\draw[thick, color = #3] (#1-0.75,#2-0.75) rectangle (#1+0.75,#2+0.75);
+	\draw[thick, color = #3] (#1,#2+0.625) --++ (0,-0.25) --++ (-0.4,0) --++ (0.4,-0.625) --++ (0,-0.25) --++ (0,0.25) --++ (-0.375,0) --++ (0.75,0) --++ (-0.375,0)--++ (0.4,0.625) --++ (-0.4,0);
+	\draw[thick, color = #3] (#1+0.3,#2-0.5) node[rotate = -40]{$\to$};
+	\draw[thick, color = #3] (#1+0.5,#2-0.5) node[rotate = -45]{$\to$};
+	\draw[thick, color = #3] (#1,#2-0.75) --++ (0,-0.75);
+	\draw[snake = coil, segment aspect  = 0, segment length = 2 mm, color = #3] (#1-0.25,#2+0.25) --++ (0.5,0);
+}

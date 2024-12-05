@@ -1,0 +1,259 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% author                : louis tomczyk
+% date of production    : 2024-02-11
+% licence               : cc-by-nc-sa
+%                         Attribution - Non-Commercial - Share Alike 4.0 International
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[french]{babel}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{braket,stmaryrd}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{tcolorbox}%
+\usepackage{geometry}% change layout
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{mathrsfs}
+\usepackage{chngcntr}
+\usepackage{colortbl}
+%\usepackage{appendix}
+%\usepackage{etoolbox}
+\usepackage{bm}
+\usepackage{ccicons}   % Package pour les icônes Creative Commons
+
+%\BeforeBeginEnvironment{appendices}{\clearpage}
+\usepackage[ no-math ]{fontspec}
+\setsansfont{cmunb}[ 			%CMU Bright for text
+	Extension       = .otf, 
+	UprightFont     = *mr, 
+	ItalicFont      = *mo, 
+	BoldFont        = *sr,  			% semibold
+	BoldItalicFont  = *so,  		% semibold oblique
+	NFSSFamily      = cmbr
+	 ]
+\usepackage{cmbright}		%CMU Bright for math}
+
+% indicatrice
+\usepackage{bbold}
+\def \ind{\mathbb{1}}
+
+% lettre cyrillique SHA
+\DeclareFontFamily{U}{wncy}{}
+\DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+\DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
+\DeclareMathSymbol{\Sh}{\mathord}{mcy}{"58}
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+\geometry   {hmargin=1.5cm,vmargin=1.5cm}% margins
+\setlength  {\headheight}{12.5pt}% header
+\setlength  {\parindent}{0pt}
+\hypersetup {
+    colorlinks,
+    citecolor   = black,
+    filecolor   = black,
+    linkcolor   = black,
+    urlcolor    = violet,
+}
+\counterwithin{figure}{subsection}
+\counterwithin{table}{subsection}
+
+\titleformat{\section}
+    {\color{black!25!blue}\normalfont\Large\bfseries}
+    {\color{black!25!blue}\thesection}{1em}{}
+\titleformat{\subsection}
+    {\color{black!50!blue}\normalfont\Large\bfseries}
+    {\color{black!50!blue}\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+    {\color{black!75!blue}\normalfont\Large\bfseries}
+    {\color{black!75!blue}\thesubsubsection}{1em}{}
+
+\def \d{\cdot}
+\def \tq{\quad\backslash\quad}
+\def \And{\quad\&\quad}
+
+
+\def \l{\left}
+\def \r{\right}
+
+\def \cov{\text{cov}}
+
+\def \C{\mathbb{C}}
+\def \E{\mathbb{E}}
+\def \N{\mathbb{N}}
+\def \P{\mathbb{P}}
+\def \R{\mathbb{R}}
+\def \U{\mathbb{U}}
+\def \V{\mathbb{V}}
+\def \Z{\mathbb{Z}}
+
+\def \calA{\mathcal{A}}
+\def \calB{\mathcal{B}}
+\def \calC{\mathcal{C}}
+\def \calD{\mathcal{D}}
+\def \calE{\mathcal{E}}
+\def \calF{\mathcal{F}}
+\def \calH{\mathcal{H}}
+\def \calL{\mathcal{L}}
+\def \calM{\mathcal{M}}
+\def \calN{\mathcal{N}}
+\def \calO{\mathcal{O}}
+\def \calQ{\mathcal{Q}}
+\def \calS{\mathcal{S}}
+\def \calT{\mathcal{T}}
+\def \calU{\mathcal{U}}
+\def \calW{\mathcal{W}}
+\def \calX{\mathcal{X}}
+\def \calY{\mathcal{Y}}
+\def \calZ{\mathcal{Z}}
+
+\def \calEH{\mathcal{E}^\mathtt{H}}
+\def \calET{\mathcal{E}^\mathtt{T}}
+\def \calXhat{\hat{\mathcal{X}}}
+
+\def \scrQ{\mathscr{Q}}
+
+\def \NT{\hat{N}_{\mathtt{T}}}
+\def \NTback{\hat{N}_{\mathtt{T}}^{\leftarrow}}
+\def \NTfor{\hat{N}_{\mathtt{T}}^{\to}}
+\def \NH{\hat{N}_{\mathtt{H}}}
+
+\def \NTrp{\hat{N}_{\mathtt{T}}^{\mathtt{RP}}}
+\def \NTerp{\hat{N}_{\mathtt{T}}^{e\mathtt{RP}\ell}}
+\def \NTrpback{\hat{N}_{\mathtt{T}}^{\mathtt{RP},\leftarrow}}
+\def \NTerpback{\hat{N}_{\mathtt{T}}^{e\mathtt{RP}\ell,\leftarrow}}
+\def \NTrpfor{\hat{N}_{\mathtt{T}}^{\mathtt{RP},\to}}
+\def \NTerpfor{\hat{N}_{\mathtt{T}}^{e\mathtt{RP}\ell,\to}}
+
+\def \NHrp{\hat{N}_{\mathtt{H}}^{\mathtt{RP}}}
+\def \NHerp{\hat{N}_{\mathtt{H}}^{e\mathtt{RP}\ell}}
+\def \NHrpback{\hat{N}_{\mathtt{H}}^{\mathtt{RP},\leftarrow}}
+\def \NHerpfor{\hat{N}_{\mathtt{H}}^{e\mathtt{RP}\ell,\to}}
+
+\def \ylin{y_{\scriptsize L}}
+\def \ynlin{y_{\scriptsize NL}}
+
+\def \qxy{q(x|y)}
+\def \pxy{p(x|y)}
+\def \qyx{q(y|x)}
+\def \pyx{p(y|x)}
+\def \px{p(x)}
+\def \py{p(y)}
+\def \qx{q(x)}
+\def \qy{q(y)}
+
+\def \xhat{\hat{x}}
+\def \Xhat{\hat{X}}
+\def \hhat{\hat{h}}
+\def \Hhat{\hat{H}}
+\def \hatt{h_{att}}
+\def \hdc{h_{DC}}
+\def \hpdl{h_{PDL}}
+\def \hpmd{h_{PMD}}
+\def \hlin{h_{lin}}
+\def \hnlin{h_{nlin}}
+\def \hlm{h_{\lambda\mu}}
+\def \hlmI{h_{\lambda\mu,I}}
+\def \hlmQ{h_{\lambda\mu,Q}}
+\def \xa{x_{\alpha}}
+\def \xaI{x_{\alpha,I}}
+\def \xaQ{x_{\alpha,Q}}
+\def \ya{y_{\alpha}}
+\def \yaI{y_{\alpha,I}}
+\def \yaQ{y_{\alpha,Q}}
+
+\def \xHI{x_{H,I}}
+\def \xHQ{x_{H,Q}}
+\def \xVI{x_{V,I}}
+\def \xVQ{x_{V,Q}}
+
+\def \yHI{\tilde{y}_{H,I}}
+\def \yHQ{\tilde{y}_{H,Q}}
+\def \yVI{\tilde{y}_{V,I}}
+\def \yVQ{\tilde{y}_{V,Q}}
+
+\def \xtilde{\tilde{x}}
+\def \Xtilde{\tilde{X}}
+\def \calXtilde{\tilde{\mathcal{X}}}
+
+\def \Tsymb{T_{symb}}
+\def \Tbit{T_{bit}}
+\def \Rsymb{R_{symb}}
+\def \Rbit{R_{bit}}
+
+\def \ytilde{\tilde{y}}
+\def \Ytilde{\tilde{Y}}
+\def \calYtilde{\tilde{\mathcal{Y}}}
+
+\def \bdbox{\tcbset{colframe=gray ,colback=lightgray!50!white ,colupper=black}\begin{tcolorbox}}
+\def \edbox{\end{tcolorbox}}
+
+\def \bdefbox{\tcbset{colframe=green ,colback=green!50!white ,colupper=black, opacityback = 1}\begin{tcolorbox}}
+\def \edefbox{\end{tcolorbox}}
+
+
+
+\newcommand \Partial[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand \PartialHigher[3]{\dfrac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand \Blue[1]{\textcolor{blue}{#1}}
+\newcommand \Orange[1]{\textcolor{orange}{#1}}
+\newcommand \Gray[1]{\textcolor{gray}{#1}}
+\newcommand \Violet[1]{\textcolor{violet}{#1}}
+\newcommand \OG[1]{\og{}#1\fg{}}
+\newcommand \integers[2]{\llbracket #1,#2\rrbracket}
+\newcommand \mymatrix[1]{
+    \begin{pmatrix}
+        #1
+    \end{pmatrix}
+}
+
+\newcommand{\myitem}[1]{\item[\textbf{\textcolor{blue}{#1}:}]}
+\newcommand{\To}[1]{\underset{#1}{\to}}
+
+\newcommand \DKL[2]{D_{KL}\bigg[#1\parallel #2\bigg]}
+\newcommand \DKLs[2]{D_{KL}[#1\parallel #2]}
+
+
+
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray*}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\ees}{\end{eqnarray*}}
+
+\newcommand{\bfig}{\begin{figure}[ht]\centering}
+\newcommand{\efig}{\end{figure}}
+
+\newcommand{\btab}{\begin{table}[ht]\centering}
+\newcommand{\etab}{\end{table}}
+
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+
+
+\newcommand{\var}[1]{\sigma^2(#1)}
+\newcommand{\std}[1]{\sigma(#1)}
+\newcommand{\mean}[1]{\braket{#1}}
+\newcommand{\Bmean}[1]{\bigg\langle #1\bigg\rangle}
+\newcommand{\pow}[1]{|#1|^2}
+\newcommand{\Bpow}[1]{\bigg|#1\bigg|^2}
+\newcommand{\Exp}[1]{\cdot 10^{#1}}
+
+
+\newcommand{\coloredboxed}[2]{%
+	\begingroup
+	\setlength{\fboxsep}{0pt}% pour supprimer l'espace autour du contenu de la boîte
+	\colorlet{boxcolor}{#1}% définir la couleur de la boîte
+	\colorbox{boxcolor!30}{\textcolor{boxcolor!70}{\boxed{\textcolor{black}{#2}}}}%
+	\endgroup
+}
+
